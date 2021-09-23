@@ -1,0 +1,4 @@
+*.hex binary
+*.bin binary
+*.so binary
+*.a binary
