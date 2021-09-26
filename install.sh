@@ -36,3 +36,7 @@ sudo cp -f firmware/* ${FIRMWARE_INSTALL_DIR}
 sudo cp -f udev/* ${RULES_INSTALL_DIR}
 # CMake Find script
 sudo cp -f cmake/FindSBIGUDRV.cmake ${CMAKE_MODULE_DIR}/
+
+
+# Reload UDEV rules:
+sudo udevadm control --reload

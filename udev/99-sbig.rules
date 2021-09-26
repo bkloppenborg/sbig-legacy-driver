@@ -48,15 +48,15 @@
 #=================================
 # SBIG ST-7/8/9/10/2K cameras
 SUBSYSTEM=="usb", ACTION=="add", ATTR{idVendor}=="0d97", ATTR{idProduct}=="0001" , ENV{DEVTYPE}=="usb_device", \
-RUN+="/sbin/fxload -I /lib/firmware/sbigucam.hex -D $env{DEVNAME}", \
-RUN+="/bin/chmod 0666 $env{DEVNAME}"
+RUN+="/sbin/fxload -I /lib/firmware/sbigucam.hex -D $env{DEVNAME}"
 
 # SBIG ST-L cameras
 SUBSYSTEM=="usb", ACTION=="add", ATTR{idVendor}=="0d97", ATTR{idProduct}=="0002" , ENV{DEVTYPE}=="usb_device", \
-RUN+="/sbin/fxload -I /lib/firmware/sbiglcam.hex -D $env{DEVNAME}", \
-RUN+="/bin/chmod 0666 $env{DEVNAME}"
+RUN+="/sbin/fxload -I /lib/firmware/sbiglcam.hex -D $env{DEVNAME}"
 
 # SBIG ST-402/1603/3200 cameras
 SUBSYSTEM=="usb", ACTION=="add", ATTR{idVendor}=="0d97", ATTR{idProduct}=="0003" , ENV{DEVTYPE}=="usb_device", \
-RUN+="/sbin/fxload -I /lib/firmware/sbigfcam.hex -D $env{DEVNAME}", \
-RUN+="/bin/chmod 0666 $env{DEVNAME}"
+RUN+="/sbin/fxload -I /lib/firmware/sbigfcam.hex -D $env{DEVNAME}"
+
+# Make all SBIG Cameras accessible post enumeration
+SUBSYSTEM=="usb", ATTR{idVendor}=="0d97", MODE="0666"
